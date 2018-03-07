@@ -9,9 +9,10 @@ def tempnet():
 
     network = tflearn.input_data(shape=[None,1], name='input')
     network = tflearn.batch_normalization(network)
-    #network = fully_connected(network, 1, activation='relu')
+    network = fully_connected(network, 10, activation='relu')
 
     network = fully_connected(network, 3, activation='softmax')
+    network = fully_connected(network, 3)
 
     momentum = tflearn.Momentum(learning_rate=0.06, lr_decay=0.8, decay_step=1000)
 
